@@ -1,0 +1,20 @@
+version: "3"
+services:
+  alpacaBotDB:
+    image: "postgres"
+    # environment:
+    # - POSTGRES_USER:user
+    # - POSTGRES_PASSWORD:pass
+    # - POSTGRES_DB:alpacaBotDB
+    # - POSTGRES_HOST:localhost
+    # - POSTGRES_PORT:5432
+    # psql postgres://[USERNAME]:[PASSWORD]@[HOSTNAME]:[PORT]/[DATABASENAME]?sslmode=require
+    # - POSTGRES_URL:postgres://user:pass@localhost:5432/alpacaBotDB?sslmode=disable
+    env_file:
+      - .env
+    ports:
+      - "5432:5432"
+    volumes:
+      - alpacaBotDB:/var/lib/postgresql/data/
+volumes:
+  alpacaBotDB:
